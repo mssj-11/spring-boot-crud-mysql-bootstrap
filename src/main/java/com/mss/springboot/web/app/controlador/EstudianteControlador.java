@@ -69,7 +69,7 @@ public class EstudianteControlador {
 	}
 	
 	
-	@GetMapping("/estudiantes/{id}")
+	@GetMapping("/estudiantes/eliminar/{id}")
 	public String eliminarEstudiante(@PathVariable Long id){
 		estudianteServicio.eliminarEstudiante(id);
 		
