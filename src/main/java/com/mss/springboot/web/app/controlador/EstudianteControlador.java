@@ -45,14 +45,36 @@ public class EstudianteControlador {
 	}
 	
 	
+	//	Obtener Estudiante
 	@GetMapping("/estudiantes/editar/{id}")
 	public String mostrarFormularioEditar(@PathVariable Long id, Model modelo) {
-		modelo.addAttribute("estudiante", estudianteServicio);
+		modelo.addAttribute("estudiante", estudianteServicio.obtenerEstudiantePorId(id));
 		
 		return "editar_estudiante";
 	}
 	
 	
+	//	Actualizar Estudiante
+	@PostMapping("/estudiantes/{id}")
+	public String actualizarEstudiante(@PathVariable Long id, @ModelAttribute("estudiante") Estudiante estudiante, Model modelo) {
+		Estudiante estudianteExistente = estudianteServicio.obtenerEstudiantePorId(id);
+		estudianteExistente.setId(id);
+		estudianteExistente.setNombre(estudiante.getNombre());
+		estudianteExistente.setApellidos(estudiante.getApellidos());
+		estudianteExistente.setEmail(estudiante.getEmail());
+		
+		estudianteServicio.actualizarEstudiante(estudianteExistente);
+		
+		return "redirect:/estudiantes";
+	}
+	
+	
+	@GetMapping("/estudiantes/{id}")
+	public String eliminarEstudiante(@PathVariable Long id){
+		estudianteServicio.eliminarEstudiante(id);
+		
+		return "redirect:/estudiantes";
+	}
 	
 	
 }
