@@ -79,7 +79,6 @@ public class Estudiante {
 	
 	
 	
-	
 	//	toString
 	@Override
 	public String toString() {
