@@ -28,6 +28,8 @@ public class Estudiante {
 	
 	
 	//	Constructor
+	public Estudiante() {
+	}
 	public Estudiante(Long id, String nombre, String apellidos, String email) {
 		super();
 		this.id = id;
@@ -36,7 +38,6 @@ public class Estudiante {
 		this.email = email;
 	}
 	public Estudiante(String nombre, String apellidos, String email) {
-		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
