@@ -53,7 +53,6 @@ public class EstudianteControlador {
 		return "editar_estudiante";
 	}
 	
-	
 	//	Actualizar Estudiante
 	@PostMapping("/estudiantes/{id}")
 	public String actualizarEstudiante(@PathVariable Long id, @ModelAttribute("estudiante") Estudiante estudiante, Model modelo) {
@@ -69,6 +68,7 @@ public class EstudianteControlador {
 	}
 	
 	
+	//	Eliminar
 	@GetMapping("/estudiantes/eliminar/{id}")
 	public String eliminarEstudiante(@PathVariable Long id){
 		estudianteServicio.eliminarEstudiante(id);
